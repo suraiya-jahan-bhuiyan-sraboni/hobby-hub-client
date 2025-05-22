@@ -13,6 +13,13 @@ const Navbar = () => {
       <progress className="progress w-56"></progress>
     </div>;
   }
+  const handleThemeChange = (e) => {
+    if (e.target.checked) {
+      document.documentElement.setAttribute('data-theme', 'synthwave');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  };
 
   const handleLogout = function () {
     logout().then(() => {
@@ -63,6 +70,7 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">
           <li><NavLink to="/">Home</NavLink></li>
           <li><NavLink to="/all-groups">All Groups</NavLink></li>
+          
 
           {
             user ? <><li><NavLink to="/create-group">Create Group</NavLink></li>
@@ -72,16 +80,26 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
+        <label className="toggle text-base-content">
+          <input onChange={handleThemeChange}
+            type="checkbox" value="synthwave" className="theme-controller" />
+
+          <svg aria-label="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></g></svg>
+
+          <svg aria-label="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></g></svg>
+
+        </label>
         {
           (user) ?
             <>
+              
               <div className=" mx-4 relative group">
                 <img className='w-10 h-10 object-cover rounded-full '
                   alt="user "
                   src={user.photoURL} />
                 <p className='absolute px-2 bg-gray-200 border border-gray-400
               opacity-0 group-hover:opacity-100
-              text-gray-500 font-semibold rounded text-center right-12 bottom-1 '>{user.displayName}</p>
+              text-gray-500 font-semibold rounded text-center right-1 -bottom-5 '>{user.displayName}</p>
               </div>
               <button onClick={handleLogout} className='btn bg-blue-800 text-white font-semibold hidden sm:block'>Log out</button>
             </>
