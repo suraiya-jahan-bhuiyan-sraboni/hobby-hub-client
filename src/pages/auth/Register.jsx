@@ -8,7 +8,7 @@ import { auth } from '../../firebase/firebase.config';
 
 
 const Register = () => {
-  const { createUser, setUser, user, loading, updateUser, loginWithGoogle } = use(AuthContext)
+  const { createUser, setUser, user, loading, updateUser } = use(AuthContext)
   const [showPassword, setShowPassword] = useState(false)
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
