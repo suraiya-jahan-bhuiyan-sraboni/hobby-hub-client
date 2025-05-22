@@ -1,2 +1,20 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+.menu a.active {
+    border: 1px solid black
+}
+
+@media (max-width: 375px) {
+    .custom-auth-btn {
+        display: none !important;
+    }
+}
+.custom-btn {
+    display: none !important;
+}
+
+@media (max-width: 374px) {
+    .custom-btn {
+        display: inline-block !important;
+    } }
