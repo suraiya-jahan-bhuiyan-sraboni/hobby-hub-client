@@ -34,10 +34,6 @@ const FeaturedGroups = () => {
                       )
                   })
               }
-
-              
-              
-        
           </div>
           
 
