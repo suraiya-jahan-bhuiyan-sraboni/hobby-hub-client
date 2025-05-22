@@ -1,11 +1,16 @@
-import React, { use, useContext } from 'react'
+import React, { use, useContext, useEffect } from 'react'
 import { Link, NavLink, useLocation } from 'react-router'
 import { AuthContext } from '../../context/AuthContextProvider';
 import { toast } from 'react-toastify';
 
 const Navbar = () => {
   const { user, logout, loading } = useContext(AuthContext)
-  const location=useLocation()
+  const location = useLocation()
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  }, []);
 
   if (loading) {
     return <div className="min-h-screen flex justify-center items-center flex-col">
@@ -14,11 +19,9 @@ const Navbar = () => {
     </div>;
   }
   const handleThemeChange = (e) => {
-    if (e.target.checked) {
-      document.documentElement.setAttribute('data-theme', 'synthwave');
-    } else {
-      document.documentElement.setAttribute('data-theme', 'light');
-    }
+    const theme = e.target.checked ? 'synthwave' : 'light';
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
   };
 
   const handleLogout = function () {
@@ -80,15 +83,11 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <label className="toggle text-base-content">
-          <input onChange={handleThemeChange}
-            type="checkbox" value="synthwave" className="theme-controller" />
-
-          <svg aria-label="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></g></svg>
-
-          <svg aria-label="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></g></svg>
-
-        </label>
+        <input
+          type="checkbox"
+          value="synthwave"
+          onChange={handleThemeChange}
+          className="toggle theme-controller col-span-2 col-start-1 row-start-1 border-sky-400 bg-amber-300 [--tglbg:var(--color-sky-500)] checked:border-blue-800 checked:bg-blue-300 checked:[--tglbg:var(--color-blue-900)]"  />
         {
           (user) ?
             <>
