@@ -1,7 +1,8 @@
 import React, { useContext, useState } from 'react'
 import { AuthContext } from '../../context/AuthContextProvider';
-import { useNavigate } from 'react-router';
+import { Navigate, useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
+
 
 const categories = [
   "Drawing & Painting",
@@ -15,7 +16,18 @@ const categories = [
   "others"
 ];
 const CreateGroup = () => {
-  const { user } = useContext(AuthContext);
+  const { user, loading } = useContext(AuthContext)
+
+  if (loading) {
+    return <div className="min-h-screen flex justify-center items-center flex-col">
+      Loading...
+      <progress className="progress w-56"></progress>
+    </div>;
+  }
+  if (!user) {
+    return <Navigate to={"/login"} replace />
+  }
+  
   const handleCreateGroup = (e) => {
     e.preventDefault();
     const form = e.target;

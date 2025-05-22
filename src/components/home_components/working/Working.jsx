@@ -7,7 +7,7 @@ import { Fade, Zoom } from 'react-awesome-reveal';
 const Working = () => {
     return (
         <div>
-            <div className='w-11/12 mx-auto grid grid-cols-1 sm:grid-cols-3 gap-10'>
+            <div className='w-11/12 mx-auto grid grid-cols-1 sm:grid-cols-3 auto-rows-fr gap-10'>
 
                 <Zoom triggerOnce>
                     <div className='flex flex-col justify-center items-center p-5 shadow-lg'>
@@ -34,7 +34,7 @@ const Working = () => {
                         <HiLightningBolt className='text-4xl text-primary' />
                         <h2 className='font-bold text-lg mt-2'>Grow</h2>
                         <p className='text-xs font-medium text-center'>
-                            Develop your skills and expand your network
+                            Develop your skills and expand your network for future opportunities
                         </p>
                     </div>
                 </Zoom>

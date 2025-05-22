@@ -1,7 +1,20 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router'
+import React, { useContext, useEffect, useState } from 'react'
+import { Navigate, useParams } from 'react-router'
+import { AuthContext } from '../../context/AuthContextProvider';
+import { toast } from 'react-toastify';
 
 const GroupDetails = () => {
+    const { user, loading } = useContext(AuthContext)
+
+    if (loading) {
+        return <div className="min-h-screen flex justify-center items-center flex-col">
+            Loading...
+            <progress className="progress w-56"></progress>
+        </div>;
+    }
+    if (!user) {
+        return <Navigate to={"/login"} />
+    }
     const { id } = useParams()
     //console.log(id)
     const [group, setGroup] = useState({})
