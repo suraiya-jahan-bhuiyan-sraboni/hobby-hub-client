@@ -22,12 +22,12 @@ const AllGroups = () => {
                 <img className='h-1/2' src={group.imageURL} alt={`${group.name} image`} />
                 <div className='flex flex-col gap-4 w-11/12 mx-auto'>
                   <h1 className='text-xl font-bold'>{group.name}</h1>
-                  <p className='text-xs label'>{group.category}
+                  <div className='text-xs label'>{group.category}
                     <p className='flex items-center gap-1 ml-2'><MdGroups className='text-xl text-blue-400' />{group.maxMembers} members</p>
-                  </p>
+                  </div>
                   <p className='text-xs'><span className='text-blue-400 font-bold'>Creator:</span> {group.userName}</p>
                 <p className='text-xs'>
-                  <span className='text-blue-400 font-bold'>Start Date:</span>
+                  <span className='text-blue-400 font-bold'>Start Date: </span>
                   {group.startDate}
                   </p>
                 </div>
