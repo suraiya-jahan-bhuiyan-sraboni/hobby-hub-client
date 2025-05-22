@@ -71,7 +71,7 @@ const UpdateGroups = () => {
                 }
             })
             .catch(error => {
-                console.error('Error:', error);
+                //console.error('Error:', error);
                 toast.error('An error occurred. Please try again later.');
             });
         //console.log(groupData)
