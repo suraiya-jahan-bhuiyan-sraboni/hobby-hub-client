@@ -49,7 +49,7 @@ const CreateGroup = () => {
       body: JSON.stringify(groupData)
     }).then(res => res.json())
       .then(data => {
-        console.log(data);
+        //console.log(data);
         if (data.acknowledged) {
           toast.success('Group created successfully!');
           form.reset();
