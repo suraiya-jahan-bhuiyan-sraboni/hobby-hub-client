@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Navigate, useParams } from 'react-router'
 import { AuthContext } from '../../context/AuthContextProvider';
 import { toast } from 'react-toastify';
+import { Helmet } from 'react-helmet';
 
 const GroupDetails = () => {
     const { user, loading } = useContext(AuthContext)
@@ -32,7 +33,9 @@ const GroupDetails = () => {
 
     return (
         <div className='w-11/12 mx-auto my-10'>
-
+            <Helmet>
+                <title>{group.name}</title>
+            </Helmet>
             <div className='flex flex-col gap-4'>
                 <img className='h-[400px] object-cover bg-center' src={group.imageURL} alt={`${group.name} image`} />
                 <div className='flex flex-col gap-4 w-11/12 mx-auto'>

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Link, Navigate, useNavigate, useParams } from 'react-router';
 import { AuthContext } from '../../context/AuthContextProvider';
 import { toast } from 'react-toastify';
+import { Helmet } from 'react-helmet';
 
 const categories = [
     "Drawing & Painting",
@@ -88,7 +89,9 @@ const UpdateGroups = () => {
 
     return (
         <div className='w-11/12 mx-auto'>
-
+            <Helmet>
+                <title>Update Group</title>
+            </Helmet>
             <div className="max-w-3xl mx-auto p-8 bg-base-200 rounded-lg shadow-md mt-12">
                 <h2 className="text-2xl font-bold mb-8 text-center">Update Group</h2>
                 <form onSubmit={

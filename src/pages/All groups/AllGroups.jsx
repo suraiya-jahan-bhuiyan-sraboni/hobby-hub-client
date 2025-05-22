@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 import { MdGroups } from "react-icons/md";
+import { Helmet } from 'react-helmet';
 
 const AllGroups = () => {
    const [groups, setGroups] = useState([])
@@ -14,6 +15,9 @@ const AllGroups = () => {
       }, [])
   return (
     <div className='w-11/12 mx-auto my-10'>
+      <Helmet>
+        <title>All Groups</title>
+      </Helmet>
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'>
         {
           groups.map(group => {

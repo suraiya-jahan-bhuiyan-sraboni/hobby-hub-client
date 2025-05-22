@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import { AuthContext } from '../../context/AuthContextProvider';
 import { Navigate, useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
+import { Helmet } from 'react-helmet';
 
 
 const categories = [
@@ -79,7 +80,9 @@ const CreateGroup = () => {
 
   return (
     <div className='w-11/12 mx-auto'>
-      
+      <Helmet>
+        <title>Create Group</title>
+      </Helmet>
       <div className="max-w-3xl mx-auto p-8 bg-base-200 rounded-lg shadow-md mt-12">
         <h2 className="text-2xl font-bold mb-8 text-center">Create New Group</h2>
         <form onSubmit={handleCreateGroup} className="space-y-5">

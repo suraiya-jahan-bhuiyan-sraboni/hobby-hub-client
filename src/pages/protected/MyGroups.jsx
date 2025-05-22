@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../../context/AuthContextProvider';
 import { Link, Navigate } from 'react-router';
+import { Helmet } from 'react-helmet';
+import { toast } from 'react-toastify';
 
 const MyGroups = () => {
   const { user, loading } = useContext(AuthContext);
@@ -22,12 +24,31 @@ const MyGroups = () => {
   if (!user) {
     return <Navigate to={"/login"} />
   }
+  const handleDeleteGroup = (id) => { 
+    const confirmDelete = window.confirm("Are you sure you want to delete this group?");
+    if (confirmDelete) {
+      fetch(`http://localhost:3000/groups/${id}`, {
+        method: "DELETE",
+      })
+        .then(res => res.json())
+        .then(data => {
+          if (data.deletedCount > 0) {
+            
+            setGroups(groups.filter(group => group._id !== id));
+            toast.success("Group deleted successfully");
+          }
+        });
+    }
 
+  }
 
   //console.log(groups)
 
   return (
     <div className="w-11/12 mx-auto my-10">
+      <Helmet>
+        <title>My Groups</title>
+      </Helmet>
       <div className="flex justify-between items-center mb-4 flex-wrap gap-4">
         <h2 className="text-2xl font-bold">My Groups</h2>
         <Link
@@ -60,7 +81,7 @@ const MyGroups = () => {
                   <Link to={`/update-group/${group._id}`} className="bg-indigo-600 text-white px-2 py-1 rounded-md text-xs sm:px-3 sm:text-sm">
                     Update
                   </Link>
-                  <button className="bg-red-500 text-white px-2 py-1 rounded-md text-xs sm:px-3 sm:text-sm">
+                  <button onClick={() => handleDeleteGroup(group._id)} className="bg-red-500 text-white px-2 py-1 rounded-md text-xs sm:px-3 sm:text-sm">
                     Delete
                   </button>
                 </td>
