@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { AuthContext } from '../../context/AuthContextProvider';
 import { useNavigate } from 'react-router';
+import { toast } from 'react-toastify';
 
 const categories = [
   "Drawing & Painting",
@@ -39,12 +40,33 @@ const CreateGroup = () => {
       userName,
       userEmail
     };
+    // Send groupData to the server or perform any other action
+    fetch('http://localhost:3000/createGroup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(groupData)
+    }).then(res => res.json())
+      .then(data => {
+        console.log(data);
+        if (data.acknowledged) {
+          toast.success('Group created successfully!');
+          form.reset();
+        } else {
+          toast.error('Failed to create group. Please try again.');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        toast.error('An error occurred. Please try again later.');
+      });
 
-    console.log(groupData);
+    //console.log(groupData);
   }
 
   return (
-    <div>
+    <div className='w-11/12 mx-auto'>
       
       <div className="max-w-3xl mx-auto p-8 bg-base-200 rounded-lg shadow-md mt-12">
         <h2 className="text-2xl font-bold mb-8 text-center">Create New Group</h2>
@@ -120,6 +142,7 @@ const CreateGroup = () => {
             placeholder="User Name"
             value={user?.displayName}
             className="input input-bordered w-full"
+            readOnly
           />
           <label htmlFor="userEmail" className="label">User Email:</label>
           <input
@@ -128,7 +151,7 @@ const CreateGroup = () => {
             placeholder="User Email"
             value={user?.email}
             className="input input-bordered w-full"
-            
+            readOnly
           />
           <button
             type="submit"
