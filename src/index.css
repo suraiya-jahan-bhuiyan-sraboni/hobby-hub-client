@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+
+
 .menu a.active {
     border: 1px solid black
 }

@@ -2,6 +2,8 @@ import React, { use, useContext, useEffect } from 'react'
 import { Link, NavLink, useLocation } from 'react-router'
 import { AuthContext } from '../../context/AuthContextProvider';
 import { toast } from 'react-toastify';
+import {Tooltip} from 'react-tooltip';
+
 
 const Navbar = () => {
   const { user, logout, loading } = useContext(AuthContext)
@@ -95,10 +97,10 @@ const Navbar = () => {
               <div className=" mx-4 relative group">
                 <img className='w-10 h-10 object-cover rounded-full '
                   alt="user "
+                  data-tooltip-id="user-tooltip"
+                  data-tooltip-content={user.displayName}
                   src={user.photoURL} />
-                <p className='absolute px-2 bg-gray-200 border border-gray-400
-              opacity-0 group-hover:opacity-100
-              text-gray-500 font-semibold rounded text-center right-1 -bottom-5 '>{user.displayName}</p>
+                <Tooltip className='z-10 !bg-amber-200 !text-black ' id="user-tooltip" />
               </div>
               <button onClick={handleLogout} className='btn bg-blue-800 text-white font-semibold hidden sm:block'>Log out</button>
             </>
