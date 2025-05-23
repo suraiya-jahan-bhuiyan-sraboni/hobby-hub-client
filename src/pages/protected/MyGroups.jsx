@@ -60,8 +60,8 @@ const MyGroups = () => {
       </div>
 
       <div className="rounded-lg shadow">
-        <table className="w-full bg-white text-xs sm:text-sm text-left">
-          <thead className="bg-gray-100 text-gray-700 uppercase">
+        <table className="w-full text-xs sm:text-sm text-left">
+          <thead className=" text-gray-600 uppercase">
             <tr>
               <th className="px-1 py-1 sm:px-2 sm:py-4">Group Name</th>
               <th className="px-1 py-1 sm:px-2 sm:py-4 hidden sm:table-cell">Category</th>
@@ -72,7 +72,7 @@ const MyGroups = () => {
           </thead>
           <tbody>
             {groups.map((group) => (
-              <tr key={group._id} className="border-t hover:bg-gray-50">
+              <tr key={group._id} className="border-t hover:bg-gray-500 hover:text-white">
                 <td className="px-1 py-2 sm:px-2 sm:py-4 font-medium break-words">{group.name}</td>
                 <td className="px-1 py-2 sm:px-2 sm:py-4 break-words hidden sm:table-cell">{group.category}</td>
                 <td className="px-1 py-2 sm:px-2 sm:py-4 break-words">{group.maxMembers} members</td>
