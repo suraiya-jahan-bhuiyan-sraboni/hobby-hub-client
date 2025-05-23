@@ -45,7 +45,7 @@ const MyGroups = () => {
   //console.log(groups)
 
   return (
-    <div className="w-11/12 mx-auto my-10">
+    <div className="w-11/12 mx-auto my-10 min-h-screen">
       <Helmet>
         <title>My Groups</title>
       </Helmet>
@@ -91,7 +91,7 @@ const MyGroups = () => {
               <tr>
                 <td
                   colSpan="4"
-                  className="text-center text-3xl py-3 text-gray-400 break-words h-screen"
+                  className="text-center text-3xl py-3 text-gray-400 break-words "
                 >
                   No groups found. Create New Groups!
                 </td>
