@@ -1,12 +1,58 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+# 🎨 HobbyHub: A Local Hobby Group Organizer
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Live Site:** https://hobby-hub-f64a3.web.app/
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🌟 Overview
+
+**HobbyHub** is a community-driven platform that allows users to discover, join, or create local hobby groups. Whether it’s hiking, painting, gaming, or reading — HobbyHub brings people together through shared interests.
+
+---
+
+## 🚀 Key Features
+
+* **Secure Authentication**: Email/password login with optional Google sign-in.
+* **Private Routes**: Access to group management features is restricted to logged-in users.
+* **Create & Manage Groups**: Users can create, edit, or delete their own groups.
+* **Dynamic Group Listings**: Explore active groups and see detailed information.
+* **Join Conditions**: Users can only join groups with future start dates.
+* **Interactive UI**: Custom design, responsive across devices, with no use of placeholder text.
+* **User Feedback**: Clear success and error messages via toast and SweetAlert.
+* **Theme Toggle**: Light and dark mode support on the homepage.
+* **Animated Elements**: Enhanced UX with React Awesome Reveal animations.
+
+---
+
+## 📦 Tech Stack
+
+**Frontend:**
+
+* React
+* Tailwind CSS + DaisyUI
+* React Router
+* Firebase Auth
+* react tooltip
+* React Awesome Reveal
+* React Toast
+* firebase
+
+
+**Backend:**
+
+* Node.js
+* Express.js
+* MongoDB Atlas
+* CORS
+* Dotenv
+
+
+---
+## ⚙️ Deployment
+
+* **Client:** Hosted on Firebase 
+* **Server:** Hosted on Vercel
+
+---
