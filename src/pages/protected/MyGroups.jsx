@@ -10,7 +10,7 @@ const MyGroups = () => {
   const userEmail = user?.email
 
   useEffect(() => {
-    fetch(`http://localhost:3000/groups?email=${userEmail}`)
+    fetch(`https://hobbyhub-server-ebon.vercel.app/groups?email=${userEmail}`)
       .then(res => res.json())
       .then(data => setGroups(data))
   }, [userEmail]);
@@ -24,16 +24,16 @@ const MyGroups = () => {
   if (!user) {
     return <Navigate to={"/login"} />
   }
-  const handleDeleteGroup = (id) => { 
+  const handleDeleteGroup = (id) => {
     const confirmDelete = window.confirm("Are you sure you want to delete this group?");
     if (confirmDelete) {
-      fetch(`http://localhost:3000/groups/${id}`, {
+      fetch(`https://hobbyhub-server-ebon.vercel.app/groups/${id}`, {
         method: "DELETE",
       })
         .then(res => res.json())
         .then(data => {
           if (data.deletedCount > 0) {
-            
+
             setGroups(groups.filter(group => group._id !== id));
             toast.success("Group deleted successfully");
           }

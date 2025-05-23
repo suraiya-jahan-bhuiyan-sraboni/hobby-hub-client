@@ -20,7 +20,7 @@ const GroupDetails = () => {
     //console.log(id)
     const [group, setGroup] = useState({})
     useEffect(() => {
-        fetch(`http://localhost:3000/groups/${id}`)
+        fetch(`https://hobbyhub-server-ebon.vercel.app/groups/${id}`)
             .then(res => res.json())
             .then(data => {
                 setGroup(data)
@@ -47,7 +47,7 @@ const GroupDetails = () => {
                             <span className="text-red-500 font-semibold">This group is no longer active.</span>
                         )}
                     </div>
-                    
+
                     <p className='text-xs'>{group.category}</p>
                     <p className='text-xs'>{group.maxMembers} members</p>
                     <p className='text-xs'><span className='text-blue-400 font-bold'>Creator:</span> {group.userName}</p>

@@ -22,7 +22,7 @@ const UpdateGroups = () => {
     const [group, setGroup] = useState({})
     const navigate = useNavigate();
     useEffect(() => {
-        fetch(`http://localhost:3000/groups/${id}`)
+        fetch(`https://hobbyhub-server-ebon.vercel.app/groups/${id}`)
             .then(res => res.json())
             .then(data => {
                 setGroup(data)
@@ -54,7 +54,7 @@ const UpdateGroups = () => {
             userName,
             userEmail
         };
-        fetch(`http://localhost:3000/updateGroup/${id}`, {
+        fetch(`https://hobbyhub-server-ebon.vercel.app/updateGroup/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'

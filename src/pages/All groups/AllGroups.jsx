@@ -4,15 +4,15 @@ import { MdGroups } from "react-icons/md";
 import { Helmet } from 'react-helmet';
 
 const AllGroups = () => {
-   const [groups, setGroups] = useState([])
-      useEffect(() => {
-          fetch("http://localhost:3000/groups")
-              .then(res => res.json())
-              .then(data => {
-                  setGroups(data)
-                  
-          })
-      }, [])
+  const [groups, setGroups] = useState([])
+  useEffect(() => {
+    fetch("https://hobbyhub-server-ebon.vercel.app/groups")
+      .then(res => res.json())
+      .then(data => {
+        setGroups(data)
+
+      })
+  }, [])
   return (
     <div className='w-11/12 mx-auto my-10'>
       <Helmet>
@@ -30,12 +30,12 @@ const AllGroups = () => {
                     <p className='flex items-center gap-1 ml-2'><MdGroups className='text-xl text-blue-400' />{group.maxMembers} members</p>
                   </div>
                   <p className='text-xs'><span className='text-blue-400 font-bold'>Creator:</span> {group.userName}</p>
-                <p className='text-xs'>
-                  <span className='text-blue-400 font-bold'>Start Date: </span>
-                  {group.startDate}
+                  <p className='text-xs'>
+                    <span className='text-blue-400 font-bold'>Start Date: </span>
+                    {group.startDate}
                   </p>
                 </div>
-                
+
                 <div className='flex justify-between items-center w-11/12 mx-auto my-2 '>
                   <Link to={`/group-details/${group._id}`} className='w-full btn bg-blue-800 text-white font-semibold'>See More</Link>
                 </div>

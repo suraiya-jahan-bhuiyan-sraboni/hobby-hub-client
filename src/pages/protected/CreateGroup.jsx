@@ -28,7 +28,7 @@ const CreateGroup = () => {
   if (!user) {
     return <Navigate to={"/login"} replace />
   }
-  
+
   const handleCreateGroup = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -54,7 +54,7 @@ const CreateGroup = () => {
       userEmail
     };
     // Send groupData to the server or perform any other action
-    fetch('http://localhost:3000/createGroup', {
+    fetch('https://hobbyhub-server-ebon.vercel.app/createGroup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -91,14 +91,14 @@ const CreateGroup = () => {
             type="text"
             name="name"
             placeholder="Group Name"
-           
+
             className="input input-bordered w-full"
             required
           />
           <label htmlFor="category" className="label">Category:</label>
           <select
             name="category"
-            
+
             className="select select-bordered w-full"
             required
           >
@@ -110,7 +110,7 @@ const CreateGroup = () => {
           <textarea
             name="description"
             placeholder="Description"
-          
+
             className="textarea textarea-bordered w-full"
             rows={4}
             required
@@ -120,7 +120,7 @@ const CreateGroup = () => {
             type="text"
             name="location"
             placeholder="Location (city or address)"
-           
+
             className="input input-bordered w-full"
             required
           />
@@ -129,7 +129,7 @@ const CreateGroup = () => {
             type="number"
             name="maxMembers"
             placeholder="Maximum Members"
-            
+
             className="input input-bordered w-full"
             min={1}
             required
@@ -146,7 +146,7 @@ const CreateGroup = () => {
             type="url"
             name="imageURL"
             placeholder="Image URL"
-            
+
             className="input input-bordered w-full"
             required
           />
@@ -161,7 +161,7 @@ const CreateGroup = () => {
           />
           <label htmlFor="userEmail" className="label">User Email:</label>
           <input
-            type="email"  
+            type="email"
             name="userEmail"
             placeholder="User Email"
             value={user?.email}
