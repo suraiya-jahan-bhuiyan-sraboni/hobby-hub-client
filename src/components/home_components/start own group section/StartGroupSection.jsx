@@ -1,5 +1,5 @@
 import React from 'react'
-
+import groupImg from '/src/assets/group.avif';
 const StartGroupSection = () => {
     return (
         <div className=' my-10 text-white p-5 md:p-10  bg-blue-900'>
@@ -12,7 +12,7 @@ const StartGroupSection = () => {
                     </div>
                 </div>
                 <div className='sm:w-1/2'>
-                    <img src="src/assets/group.avif" alt="" />
+                    <img src={groupImg} alt="Group illustration" />
                 </div>
             </div>
 
