@@ -91,7 +91,7 @@ const MyGroups = () => {
               <tr>
                 <td
                   colSpan="4"
-                  className="text-center py-3 text-gray-400 break-words"
+                  className="text-center text-3xl py-3 text-gray-400 break-words h-screen"
                 >
                   No groups found. Create New Groups!
                 </td>

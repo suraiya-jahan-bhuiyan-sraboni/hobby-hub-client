@@ -5,14 +5,24 @@ import { Helmet } from 'react-helmet';
 
 const AllGroups = () => {
   const [groups, setGroups] = useState([])
+  const [loading, setLoading] = useState(true)
   useEffect(() => {
     fetch("https://hobbyhub-server-ebon.vercel.app/groups")
       .then(res => res.json())
       .then(data => {
         setGroups(data)
+        setLoading(false)
 
       })
   }, [])
+  if (loading) {
+    return (
+      <div className="min-h-screen flex justify-center items-center flex-col">
+        Loading...
+        <progress className="progress w-56"></progress>
+      </div>
+    );
+  }
   return (
     <div className='w-11/12 mx-auto my-10'>
       <Helmet>

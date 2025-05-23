@@ -16,7 +16,7 @@
     display: none !important;
 }
 
-@media (max-width: 374px) {
+@media (max-width: 375px) {
     .custom-btn {
         display: inline-block !important;
     } }
