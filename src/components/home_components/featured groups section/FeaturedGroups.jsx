@@ -3,14 +3,24 @@ import { Link } from 'react-router'
 
 const FeaturedGroups = () => {
     const [groups, setGroups] = useState([])
+     const [loading, setLoading] = useState(true)
     useEffect(() => {
         fetch("https://hobbyhub-server-ebon.vercel.app/groups")
             .then(res => res.json())
             .then(data => {
                 setGroups(data.slice(0, 6))
+                setLoading(false)
 
             })
     }, [])
+    if (loading) {
+        return (
+            <div className=" flex justify-center items-center flex-col">
+                Loading...
+                <progress className="progress w-56"></progress>
+            </div>
+        );
+      }
     // console.log(groups)
     return (
         <div className='w-11/12 mx-auto my-10'>

@@ -20,7 +20,6 @@ const AuthContextProvider = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
     const updateUser = (name, photo) => {
-
         return updateProfile(auth.currentUser, { displayName: name, photoURL: photo })
     }
     const loginWithGoogle = () => {

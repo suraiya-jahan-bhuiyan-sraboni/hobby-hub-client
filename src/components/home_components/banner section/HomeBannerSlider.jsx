@@ -25,7 +25,7 @@ const HomeBannerSlider = () => {
               className="mySwiper"
           >
               <SwiperSlide className='w-full md:h-[400px]'>
-                  <div className='relative '>
+                  <div className='relative'>
                       <img className='blur-xl w-full md:h-[400px] '
                           src="https://previews.123rf.com/images/adiruch/adiruch1604/adiruch160402889/55673555-hobbies-on-white-background.jpg"
                           alt="event" />
