@@ -11,6 +11,7 @@ import Register from './../pages/auth/Register';
 import Error404 from "../pages/error/Error404";
 import GroupDetails from "../pages/group details/GroupDetails";
 import UpdateGroups from "../pages/protected/UpdateGroups";
+import Contact from "../pages/contact/Contact";
 
 export const router = createBrowserRouter([
     {
@@ -53,7 +54,11 @@ export const router = createBrowserRouter([
             }, {
                 path: "update-group/:id",
                 Component: UpdateGroups
-            }
+            },
+            {
+                path: "/contact",
+                Component: Contact,
+            },
 
         ]
     },

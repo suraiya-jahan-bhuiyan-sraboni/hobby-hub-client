@@ -15,6 +15,17 @@ const AllGroups = () => {
 
       })
   }, [])
+  const [sortOrder, setSortOrder] = useState('asc');
+  const [filterCategory, setFilterCategory] = useState('all');
+
+  const categories = ['all', ...new Set(groups.map(g => g.category))];
+
+  const filteredGroups = groups
+    .filter(group => filterCategory === 'all' || group.category === filterCategory)
+    .sort((a, b) => {
+      if (sortOrder === 'asc') return a.name.localeCompare(b.name);
+      else return b.name.localeCompare(a.name);
+    });
   if (loading) {
     return (
       <div className="min-h-screen flex justify-center items-center flex-col">
@@ -28,9 +39,29 @@ const AllGroups = () => {
       <Helmet>
         <title>All Groups</title>
       </Helmet>
+      <h1 className='text-center text-2xl pb-6 font-bold'>All Groups</h1>
+      <div className="flex flex-wrap gap-4 mb-6 justify-center">
+        <select
+          className="select select-bordered"
+          value={filterCategory}
+          onChange={e => setFilterCategory(e.target.value)}
+        >
+          {categories.map(cat => (
+            <option key={cat} value={cat}>{cat.charAt(0).toUpperCase() + cat.slice(1)}</option>
+          ))}
+        </select>
+        <select
+          className="select select-bordered"
+          value={sortOrder}
+          onChange={e => setSortOrder(e.target.value)}
+        >
+          <option value="asc">Sort: A-Z</option>
+          <option value="desc">Sort: Z-A</option>
+        </select>
+      </div>
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'>
         {
-          groups.map(group => {
+          filteredGroups.map(group => {
             return (
               <div key={group._id} className='flex flex-col justify-between gap-4 shadow-2xl'>
                 <img className='h-1/2' src={group.imageURL} alt={`${group.name} image`} />
