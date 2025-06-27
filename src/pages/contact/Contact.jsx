@@ -4,13 +4,13 @@ import { Helmet } from 'react-helmet';
 
 const Contact = () => {
   return (
-      <div className="min-h-screen bg-gradient-to-r from-indigo-50 to-blue-100 flex flex-col items-center justify-center p-6">
+      <div className="min-h-screen  flex flex-col items-center justify-center p-6">
           <Helmet>
               <title>Contact us</title>
           </Helmet>
           <h1 className='text-4xl font-bold p-4'>Contact us</h1>
           <motion.div
-              className="max-w-5xl w-full bg-white rounded-2xl shadow-xl grid grid-cols-1 md:grid-cols-2 overflow-hidden"
+              className="max-w-5xl w-full bg-base-100 rounded-2xl shadow-xl grid grid-cols-1 md:grid-cols-2 overflow-hidden"
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -41,7 +41,7 @@ const Contact = () => {
               </div>
 
               {/* Contact Form */}
-              <div className="p-10 space-y-6 bg-white">
+              <div className="p-10 space-y-6 bg-base-200">
                   <div>
                       <label className="text-gray-700 font-medium">Your Name</label>
                       <input

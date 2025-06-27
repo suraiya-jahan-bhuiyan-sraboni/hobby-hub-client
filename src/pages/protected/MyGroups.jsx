@@ -53,7 +53,7 @@ const MyGroups = () => {
         <h2 className="text-2xl font-bold">My Groups</h2>
         <Link
           to="/create-group"
-          className="bg-purple-600 text-white px-3 py-1 rounded-md text-xs sm:px-4 sm:py-2 sm:text-base"
+          className="bg-blue-700 text-white px-3 py-1 rounded-md text-xs sm:px-4 sm:py-2 sm:text-base"
         >
           Create New Group
         </Link>

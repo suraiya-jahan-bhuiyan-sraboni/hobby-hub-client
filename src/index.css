@@ -4,7 +4,7 @@
 
 
 .menu a.active {
-    border: 1px solid gray
+    border: 1px solid rgb(106, 106, 200)
 }
 
 @media (max-width: 375px) {
